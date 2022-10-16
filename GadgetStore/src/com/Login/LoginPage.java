@@ -16,19 +16,22 @@ public class LoginPage {
 			String password = sc.nextLine();	
 	    	Connection con =Connectivity.getConnection();
 			try {
-				PreparedStatement pt = con.prepareStatement("select * from registeruser where username='"+userName+"' and vchpassword='"+password+"'");
+				PreparedStatement pt = con.prepareStatement("select userName ,vchpassword from registeruser where username='"+userName+"' and vchpassword='"+password+"'");
 				ResultSet rs = pt.executeQuery();
-		 while (rs.next()) {
 			
-					 if(userName.equals(rs.getString(3))&& password.equals(rs.getString(4))) {
+		 if (rs.next()) {
+					 if(userName.equals(rs.getString(1))&& password.equals(rs.getString(2))) {
 						 System.out.println("Login Successfull !!!");
 					 }
 					 else {
 						 System.out.println("Incorrect Username or Password");
 					 }
-					
+
 				 }
-		 
+		 else {
+			 System.out.println("Incorrect Username or Password");
+		 }
+
 			} catch (Exception e) {
 				System.out.println(e);
 			}
