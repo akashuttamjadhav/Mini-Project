@@ -1,6 +1,8 @@
 package com.Login;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
 
@@ -35,6 +37,10 @@ public class Registration {
         	Connection con =Connectivity.getConnection();
         	
             try { 
+            	PreparedStatement pt = con.prepareStatement("select userName ,vchpassword from registeruser where username='"+userName+"' ");
+				ResultSet rs = pt.executeQuery();
+				 if (!rs.next()) {
+					 
             	//System.out.println( "insert into ecommerce.RegisterUser (firstName,lastname,phoneno,username,vchpassword,emailid,address) values ('"+firstName +"',+'"+lastName +"','"+phoneNo +"','"+userName +"','"+password +"','"+emailId +"','"+address +"')");
 
 
@@ -54,6 +60,9 @@ public class Registration {
     			// close the resources.
     			con.close();
     			statement.close();
+    			}else {
+    				System.out.println("UserName Already Exist");
+    			}
     		} catch (Exception e) {
     			System.out.println(e);
     		}
