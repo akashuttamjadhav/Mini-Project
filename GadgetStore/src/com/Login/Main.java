@@ -17,7 +17,9 @@ public class Main {
 	    LoginPage lp = new LoginPage();
 	    lp.login();
 	    break;  
-	    case 2: System.out.println("Please signUP");  
+	    case 2: System.out.println("Please signUP");
+	    Registration reg=new Registration();
+	    reg.RegisterUser();
 	    break;   
 	    //Default case statement  
 	    default:System.out.println("Not in 10, 20 or 30");  

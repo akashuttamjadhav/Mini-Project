@@ -19,8 +19,7 @@ public class LoginPage {
 				PreparedStatement pt = con.prepareStatement("select * from registeruser where username='"+userName+"' and vchpassword='"+password+"'");
 				ResultSet rs = pt.executeQuery();
 		 while (rs.next()) {
-			 System.out.println(rs.getString(3));
-			 System.out.println(rs.getString(4));
+			
 					 if(userName.equals(rs.getString(3))&& password.equals(rs.getString(4))) {
 						 System.out.println("Login Successfull !!!");
 					 }
