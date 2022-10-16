@@ -22,6 +22,8 @@ public class LoginPage {
 		 if (rs.next()) {
 					 if(userName.equals(rs.getString(1))&& password.equals(rs.getString(2))) {
 						 System.out.println("Login Successfull !!!");
+						 ProductDetails pd = new ProductDetails();
+						 pd.getProduct();
 					 }
 					 else {
 						 System.out.println("Incorrect Username or Password");
