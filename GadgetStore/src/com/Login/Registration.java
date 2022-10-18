@@ -51,7 +51,10 @@ public class Registration {
     			statement.execute(sql);
 
     			System.out.println("registered successfully...");
-
+    			
+    			LoginPage lp = new LoginPage();
+    			lp.login();
+				 
     			// close the resources.
     			con.close();
     			statement.close();

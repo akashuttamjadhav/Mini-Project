@@ -70,7 +70,7 @@ public void cartDetail(int userid)  {
 	 System.out.println(rs1.getInt(4));
 	 amount =(rs1.getInt(4) * pquantity);
 	 }
-	 System.out.println(amount);
+	 System.out.println("Amount to pay is "+amount);
     System.out.println("insert into ecommerce.cartDetails (userid,pid,pname,quantity,amount,isdone) values"
     		+ " ("+userid +","+pid +",'"+prdname +"',"+pquantity +","+false +")");
     
