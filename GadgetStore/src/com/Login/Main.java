@@ -10,19 +10,19 @@ public class Main {
 		Scanner sc = new Scanner(System.in) ;
 	            System.out.println(" Press 1  If Already Register Else Press 2 for Register ");
 	            int number = sc.nextInt();
-	     
+	            LoginPage lp = new LoginPage();
+	            Registration reg=new Registration();
 	    switch(number){  
 	     
 	    case 1: System.out.println("Please SignIn"); 
-	    LoginPage lp = new LoginPage();
 	    lp.login();
 	    break;  
 	    case 2: System.out.println("Please signUP");
-	    Registration reg=new Registration();
 	    reg.RegisterUser();
 	    break;   
 	    //Default case statement  
-	    default:System.out.println("Not in 10, 20 or 30");  
+	    default:System.out.println("Please signUP");  
+	    reg.RegisterUser();
 		
 	}
 
