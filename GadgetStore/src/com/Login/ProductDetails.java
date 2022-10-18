@@ -156,17 +156,20 @@ public void seeCartDetail(int userid)  {
     PreparedStatement pt = con.prepareStatement(query);
 	ResultSet rs1 = pt.executeQuery();
 	fmt.format("%15s %20s %15s %15s\n", "ProductId", "ProductName","Quantity","Amount");
-	 if (rs1.next()) {
+	 
 		 while (rs1.next()) {
+			 System.out.println("Here it is");
 			    int s = rs1.getInt("pid");
 			    String p = rs1.getString("pname");
 			    float quantity = rs1.getFloat("quantity");
 			    int amount  = rs1.getInt("amount");
 			   fmt.format("%14s %20s %15s %14s\n", s, p,quantity,amount); 
 			}
-		 System.out.println("Please see your cart Detail is below");
-		 System.out.println(fmt);
-		 System.out.println(" Press 1  for Continue Shopping Else Press 2 Payment ");
+		 
+		if (rs1.next()) {
+			System.out.println("Please see your cart Detail is below");
+			 System.out.println(fmt);
+			 System.out.println(" Press 1  for Continue Shopping Else Press 2 Payment ");
 
 	 }
 	 else {
@@ -180,7 +183,7 @@ public void seeCartDetail(int userid)  {
     
    case 1: System.out.println("Select Items"); 
    
-   pd.cartDetail(userid);
+   pd.getProduct(userid);
    break;  
    case 2: System.out.println("Payment");
 
