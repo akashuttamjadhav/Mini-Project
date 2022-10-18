@@ -105,8 +105,8 @@ public void cartDetail(int userid)  {
 
 public void paymentDetail(int userid) {
 	try {
-	String getPurchaseDetail = "select pid ,pname ,quantity ,amount  from cartDetails where userid= "+userid+" ";
-	String totalAmount = "select sum(amount) as TotalAmount from  Ecommerce.cartDetails group by userid having userid="+userid+" ";
+	String getPurchaseDetail = "select pid ,pname ,quantity ,amount  from cartDetails where userid= "+userid+"  and isdone=false";
+	String totalAmount = "select sum(amount),isdone as TotalAmount from  Ecommerce.cartDetails where isdone= false group by userid having userid="+userid+"";
 	PreparedStatement pt = con.prepareStatement(getPurchaseDetail);
 	ResultSet rs1 = pt.executeQuery();
 	PreparedStatement pt2 = con.prepareStatement(totalAmount);
