@@ -61,18 +61,18 @@ public void cartDetail(int userid)  {
     System.out.print(" Enter Quantity => ");
     int pquantity = sc.nextInt();
     try { 
-    System.out.println("select *  from ProductDetail where pid= "+pid+" ");
+    //System.out.println("select *  from ProductDetail where pid= "+pid+" ");
     PreparedStatement pt = con.prepareStatement("select *  from ProductDetail where pid= "+pid+" ");
 	ResultSet rs1 = pt.executeQuery();
 	// System.out.println(rs1.getInt("price"));
 	int amount =0 ;
 	 if (rs1.next()) {
-	 System.out.println(rs1.getInt(4));
+	 //System.out.println(rs1.getInt(4));
 	 amount =(rs1.getInt(4) * pquantity);
 	 }
 	 System.out.println("Amount to pay is "+amount);
-    System.out.println("insert into ecommerce.cartDetails (userid,pid,pname,quantity,amount,isdone) values"
-    		+ " ("+userid +","+pid +",'"+prdname +"',"+pquantity +","+false +")");
+    /*System.out.println("insert into ecommerce.cartDetails (userid,pid,pname,quantity,amount,isdone) values"
+    		+ " ("+userid +","+pid +",'"+prdname +"',"+pquantity +","+false +")");*/
     
     String sql = "insert into ecommerce.cartDetails"
     		+ " (userid,pid,pname,quantity,amount,isdone) values ("+userid +","+pid +",'"+prdname +"',"+pquantity +","+amount +","+false +")";
